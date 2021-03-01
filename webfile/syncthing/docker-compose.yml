@@ -8,7 +8,6 @@ services:
     volumes:
       - pdfs:/var/syncthing/pdfs
       - cloudbox:/var/syncthing/cloudbox
-    #  - config:/var/syncthing/config
     # ports:
     #   - 8384:8384
     #   - 22000:22000
@@ -18,7 +17,6 @@ volumes:
     external: true
   cloudbox:
     external: true
-  config:
 networks:
   default:
     external:
