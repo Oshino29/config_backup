@@ -1,0 +1,18 @@
+services:
+  kanboard:
+    image: kanboard/kanboard:latest
+    container_name: kanboard
+    # ports:
+    #   - "29380:80"
+    #   - "29443:443"
+    volumes:
+      - data:/var/www/app/data
+      - plugins:/var/www/app/plugins
+    #  - kanboard_ssl:/etc/nginx/ssl
+volumes:
+  data:
+  plugins:
+networks:
+  default:
+    external:
+      name: nginx-proxy

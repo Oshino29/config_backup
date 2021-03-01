@@ -12,9 +12,9 @@ services:
       - IPV6_MODE=false
       - UPDATE_TRACKERS=true
       - CUSTOM_TRACKER_URL=
-      - TZ=Asia/Shanghai
+      - TZ=Europe/Berlin
     volumes:
-      - ${PWD}/aria2-config:/config
+      - config:/config
       - aria2_downloads:/downloads
 # If you use host network mode, then no port mapping is required.
 # This is your best choice when using IPv6.
@@ -42,6 +42,7 @@ services:
   #     options:
   #       max-size: 1m
 volumes:
+  config:
   aria2_downloads:
     external: true
 networks:
