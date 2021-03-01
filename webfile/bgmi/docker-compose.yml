@@ -1,0 +1,21 @@
+version: "3.8"
+services: 
+   bgmi:
+    container_name: bgmi
+    image: codysk/bgmi-all-in-one:latest
+    ports:
+    #   - "29880:80"
+    #   - "29091:9091"
+       - "51413:51413"
+       - "51413:51413/udp"
+    volumes:
+      - bgmi_bangumi:/bgmi/bangumi
+      - ~/webfile/bgmi/conf:/bgmi/conf
+      - ~/webfile/bgmi/log:/bgmi/log
+volumes:
+  bgmi_bangumi:
+    external: true
+networks:
+  default:
+    external:
+      name: nginx-proxy

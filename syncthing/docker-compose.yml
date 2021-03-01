@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    environment:
+      - STGUIADDRESS=127.0.0.1:8384
+    volumes:
+      - pdfs:/var/syncthing/pdfs
+      - cloudbox:/var/syncthing/cloudbox
+    ports:
+      - 8384:8384
+      - 22000:22000
+    restart: unless-stopped
+volumes:
+  pdfs:
+    external: true
+  cloudbox:
+    external: true

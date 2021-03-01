@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  webdav:
+    container_name: webdav
+    image: bytemark/webdav
+    environment:
+      - USERNAME=oshino
+      - PASSWORD=ZuXmka*4Sf@@o^
+    volumes:
+      - cloudbox:/var/lib/dav/data/cloudbox
+      - pdfs:/var/lib/dav/data/pdfs
+      - bgmi_bangumi:/var/lib/dav/data/bgmi_bangumi
+      - aria2_downloads:/var/lib/dav/data/aria2_downloads
+    # ports:
+    #   - 29180:80
+    #   - 29184:443
+    restart: always
+volumes:
+  cloudbox:
+    external: true
+  pdfs:
+    external: true
+  bgmi_bangumi:
+    external: true
+  aria2_downloads:
+    external: true
+networks:
+  default:
+    external:
+      name: nginx-proxy

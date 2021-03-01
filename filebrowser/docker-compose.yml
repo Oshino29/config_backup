@@ -1,0 +1,16 @@
+services:
+  filebrowser:
+    container_name: filebrowser
+    hostname: filebrowser
+    restart: always
+    image: filebrowser/filebrowser
+    #ports:
+    #  - "29080:80"
+    volumes:
+      - /home/ccllssd/:/files
+      - /home/ccllssd/filebrowser/database.db:/database.db
+      - /home/ccllssd/filebrowser/filebrowser.json:/.filebrowser.json
+networks:
+  default:
+    external:
+      name: nginx-proxy
