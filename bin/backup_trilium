@@ -1,0 +1,2 @@
+dropbox put ~/library/trilium/trilium-data/backup/backup-daily.db /trilium/backup-daily.db
+dropbox put ~/library/trilium/trilium-data/backup/backup-weekly.db /trilium/backup-weekly.db

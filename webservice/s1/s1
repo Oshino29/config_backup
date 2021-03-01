@@ -1,0 +1,15 @@
+cd ~/webservice/s1/Stage1st-Helper
+
+case $1 in 
+    '')
+        source ~/.venv/bin/activate
+        nohup python main.py > log &
+        tail -f log
+        ;;
+    log)
+        tail log
+        ;;
+    *)
+        echo "command??"
+        ;;
+esac
