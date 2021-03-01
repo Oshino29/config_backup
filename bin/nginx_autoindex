@@ -1,0 +1,28 @@
+docker ps | grep nginx
+echo
+read -p 'container name: ' container_name
+
+netstat -tulpn | grep LISTEN
+echo
+read -p 'container port: ' container_port
+
+
+docker volume ls
+echo
+read -p 'volume or directory path: ' volume
+
+echo
+echo pulling latest nginx image...
+docker pull nginx:latest > /dev/null
+
+echo
+echo starting nginx container...
+docker run --name $container_name -d -p $container_port:80 -v $volume:/usr/share/nginx/html:ro nginx
+docker cp ~/.config/default.conf $container_name:/etc/nginx/conf.d/
+
+echo
+echo restarting container...
+docker restart $container_name > /dev/null
+
+echo
+echo served $volume at http://45.128.153.86:$container_port with autoindex
