@@ -5,6 +5,11 @@ providers:
   docker:
     network: proxy
 
+entryPoints:
+  web:
+    address: ":80"
+  web-secure:
+    address: ":443"
 # API and dashboard configuration
 api:
   insecure: true
