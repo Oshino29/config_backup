@@ -14,6 +14,9 @@ services:
     # ports:
     #   - 29180:80
     #   - 29184:443
+    networks:
+      - nginx-proxy
+      - caddy-net
     restart: always
 volumes:
   cloudbox:
@@ -29,6 +32,9 @@ volumes:
   mousou:
     external: true
 networks:
-  default:
-    external:
+  nginx-proxy:
+    external: 
       name: nginx-proxy
+  caddy-net:
+    external: 
+      name: caddy-net

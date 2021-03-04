@@ -10,11 +10,9 @@ services:
        - "51413:51413/udp"
     volumes:
       - bgmi_bangumi:/bgmi/bangumi
-      - conf:/bgmi/conf
-      - log:/bgmi/log
+      - /home/ccllssd/webfile/bgmi/conf:/bgmi/conf
+      - /home/ccllssd/webfile/bgmi/log:/bgmi/log
 volumes:
-  conf:
-  log:
   bgmi_bangumi:
     external: true
 networks:
