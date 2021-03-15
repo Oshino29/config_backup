@@ -3,9 +3,11 @@ services:
   rss-bridge:
     container_name: rss-bridge
     volumes:
-      - ./whitelist.txt:/app/whitelist.txt
+      - /home/ccllssd/webservice/rssreader/rss-bridge/whitelist.txt:/app/whitelist.txt
     build:
       context: .
     image: rssbridge/rss-bridge:latest
-    ports:
-      - 29300:80
+networks:
+  default:
+    external:
+      name: nginx-proxy
